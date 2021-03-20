@@ -2,8 +2,9 @@ import 'package:flutter/material.dart';
 
 class Controlls extends StatelessWidget {
   final Function removeDataFromAppData;
+  final Function takeDataFromUser;
 
-  Controlls(this.removeDataFromAppData);
+  Controlls(this.takeDataFromUser, this.removeDataFromAppData);
 
   @override
   Widget build(BuildContext context) {
@@ -11,7 +12,9 @@ class Controlls extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
       children: <Widget>[
         TextButton(
-          onPressed: () {},
+          onPressed: () async {
+            await takeDataFromUser(context);
+          },
           child: Text(
             'Add',
             style: TextStyle(
