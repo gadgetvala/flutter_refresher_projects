@@ -85,7 +85,7 @@ Then the lib directory
 
 ## :clap: Done
 
-Feel free to **file a new issue** with a respective title and description on the the [Where in the Country](https://github.com/gadgetvala/flutter_refresher_projects/issues) repository. If you already found a solution to your problem, **I would love to review your pull request**!
+Feel free to **file a new issue** with a respective title and description on the the [2.Tours](https://github.com/gadgetvala/flutter_refresher_projects/issues) repository. If you already found a solution to your problem, **I would love to review your pull request**!
 
 ## 📘&nbsp; License
 
