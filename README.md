@@ -9,11 +9,14 @@
 
 Apps :
 
-1. Birthday_Remindar 
+1. Birthday_Remindar
 <img src="1.Birthday_Remindar/dev_assets/output.gif" width="250" height="550"/>
 
-2. Tours 
+2. Tours
 <img src="2.Tours/dev_assets/output.gif" width="250" height="550"/>
+
+3. Review_Info
+<img src="3.Review_Info/dev_assets/output.gif" width="250" height="550"/>
 
 ## :bulb: Key Features
 
@@ -23,6 +26,7 @@ Apps :
 - [x] State Management.
 - [x] Form Validation.
 - [x] Form State Handling.
+- [x] Dynamic State Updation & Rendring.
 
 ## 🚀 &nbsp;Installation
 
@@ -47,11 +51,11 @@ $ flutter run
 Some very good packages are used in the project, not a big list.
 Below are the information about these packages.
 
-| package                                                   | explain            |
-| --------------------------------------------------------- | ------------------ |
-| [uuid](https://pub.dev/packages/uuid)                     | Generate Unique IDs |
-| [dio](https://pub.dev/packages/dio)                       | Network Calls      |
-| [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons)   | App Icon Generator      |
+| package                                                                   | explain             |
+| ------------------------------------------------------------------------- | ------------------- |
+| [uuid](https://pub.dev/packages/uuid)                                     | Generate Unique IDs |
+| [dio](https://pub.dev/packages/dio)                                       | Network Calls       |
+| [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) | App Icon Generator  |
 
 ## :clap: Done
 
@@ -60,6 +64,7 @@ Feel free to **file a new issue** with a respective title and description on the
 ## 📘&nbsp; License
 
 Free, Hell Yeah!!
+
 ## :heart: Contributor
 
 Made by [Suraj Verma](https://github.com/gadgetvala)
