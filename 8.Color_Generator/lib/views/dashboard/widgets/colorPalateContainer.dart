@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:clipboard/clipboard.dart';
+import './customContainer.dart';
 
 class ColorPalateContainer extends StatelessWidget {
   final List colorArray;
@@ -19,33 +19,10 @@ class ColorPalateContainer extends StatelessWidget {
             color: colorArray[index]['color'],
             borderRadius: BorderRadius.circular(5),
           ),
-          child: InkWell(
-            onTap: () {
-              FlutterClipboard.copy(colorArray[index]['hexCode'])
-                  .then((value) => print('copied'));
-            },
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Text(
-                  '${(colorArray[index]['percentage'] * 2).toString()}%',
-                  style: TextStyle(
-                    color: index > 5 ? Colors.white : Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-                SizedBox(height: 5),
-                Text(
-                  colorArray[index]['hexCode'],
-                  style: TextStyle(
-                    color: index > 5 ? Colors.white : Colors.black,
-                    fontSize: 18,
-                    fontWeight: FontWeight.w600,
-                  ),
-                ),
-              ],
-            ),
+          child: CustomContainer(
+            colorArray[index]['hexCode'],
+            (colorArray[index]['percentage'] * 2).toString(),
+            index,
           ),
         );
       },
