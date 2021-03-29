@@ -28,7 +28,7 @@ class _InputFormState extends State<InputForm> {
             Container(
               width: 200,
               child: TextFormField(
-                keyboardType: TextInputType.number,
+                keyboardType: TextInputType.text,
                 decoration: const InputDecoration(
                   icon: Icon(Icons.code_outlined),
                   hintText: '#65177e',
