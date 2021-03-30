@@ -3,10 +3,12 @@ import 'package:flutter/material.dart';
 class DisplayContainer extends StatelessWidget {
   final List<Map<String, String>> data;
   final Function deleteData;
+  final Function setEditing;
 
   DisplayContainer({
     @required this.data,
     @required this.deleteData,
+    @required this.setEditing,
   });
 
   @override
@@ -42,7 +44,8 @@ class DisplayContainer extends StatelessWidget {
                         Icons.edit,
                         color: Colors.green,
                       ),
-                      onPressed: () {},
+                      onPressed: () =>
+                          setEditing('start', data[index]['id'], ''),
                     ),
                     IconButton(
                       icon: Icon(
