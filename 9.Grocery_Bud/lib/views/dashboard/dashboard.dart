@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:another_flushbar/flushbar.dart';
 
 import './widgets/inputBar.dart';
 import './widgets/displayContainer.dart';
-import 'package:another_flushbar/flushbar.dart';
+import './widgets/clearAllList.dart';
 
 class Dashboard extends StatefulWidget {
   @override
@@ -11,17 +12,28 @@ class Dashboard extends StatefulWidget {
 
 class _DashboardState extends State<Dashboard> {
   List<Map<String, String>> data = [];
+  bool isEditing = false;
+  String editingID = '';
+  String editingText = '';
 
-  // Clear All List
-  void clearList() {
-    setState(() => data = []);
+  // Add new Data to List
+  void setData(text) {
+    String id = DateTime.now().millisecondsSinceEpoch.toString();
+    List<Map<String, String>> newData = [
+      ...data,
+      {'id': id, 'text': text}
+    ];
+
+    setState(() {
+      data = newData;
+    });
 
     showSnackBar(
-      'Item Cleared',
-      Colors.red,
+      'Item Added',
+      Colors.green,
       Icon(
-        Icons.clear_all,
-        color: Colors.red,
+        Icons.add_outlined,
+        color: Colors.green,
       ),
     );
   }
@@ -45,26 +57,60 @@ class _DashboardState extends State<Dashboard> {
     );
   }
 
-  // Add new Data to List
-  void setData(text) {
-    String id = DateTime.now().millisecondsSinceEpoch.toString();
-    List<Map<String, String>> newData = [
-      ...data,
-      {'id': id, 'text': text}
-    ];
-
-    setState(() {
-      data = newData;
-    });
+  // Clear All List
+  void clearList() {
+    setState(() => data = []);
 
     showSnackBar(
-      'Item Added',
-      Colors.green,
+      'Item Cleared',
+      Colors.red,
       Icon(
-        Icons.add_outlined,
-        color: Colors.green,
+        Icons.clear_all,
+        color: Colors.red,
       ),
     );
+  }
+
+  // Editing
+  void setEditing(String method, String editingIDParams, String newText) {
+    if (method == 'start') {
+      List textObject =
+          data.where((el) => el['id'] == editingIDParams).toList();
+
+      setState(() {
+        isEditing = true;
+        editingID = editingIDParams;
+        editingText = textObject[0]['text'];
+      });
+    }
+
+    if (method == 'end') {
+      List<Map<String, String>> newData = data.map((el) {
+        if (el['id'] == editingIDParams) {
+          return {
+            'id': editingIDParams,
+            'text': newText,
+          };
+        }
+        return el;
+      }).toList();
+
+      setState(() {
+        isEditing = false;
+        editingID = '';
+        editingText = '';
+        data = newData;
+      });
+
+      showSnackBar(
+        'Item Updated',
+        Colors.green,
+        Icon(
+          Icons.update_outlined,
+          color: Colors.green,
+        ),
+      );
+    }
   }
 
   // Show SnackBar
@@ -116,38 +162,21 @@ class _DashboardState extends State<Dashboard> {
           ),
           child: Column(
             children: <Widget>[
-              InputBar(setData: setData),
+              InputBar(
+                setData: setData,
+                setEditing: setEditing,
+                isEditing: isEditing,
+                editingID: editingID,
+                editingText: editingText,
+              ),
               Expanded(
                 child: DisplayContainer(
                   data: data,
                   deleteData: deleteData,
+                  setEditing: setEditing,
                 ),
               ),
-              if (data.length > 0)
-                GestureDetector(
-                  onTap: () => clearList(),
-                  child: Container(
-                    width: double.infinity,
-                    height: 50,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Icon(
-                          Icons.clear_all,
-                          color: Colors.red,
-                        ),
-                        Text(
-                          "Clear Items",
-                          style: TextStyle(
-                            fontSize: 16,
-                            color: Colors.red,
-                            fontWeight: FontWeight.w400,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                ),
+              if (data.length > 0) ClearAllList(clearList: clearList),
             ],
           ),
         ),
