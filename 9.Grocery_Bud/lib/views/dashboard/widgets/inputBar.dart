@@ -2,9 +2,17 @@ import 'package:flutter/material.dart';
 
 class InputBar extends StatefulWidget {
   final Function setData;
+  final Function setEditing;
+  final bool isEditing;
+  final String editingID;
+  final String editingText;
 
   InputBar({
     @required this.setData,
+    @required this.setEditing,
+    @required this.isEditing,
+    @required this.editingID,
+    @required this.editingText,
   });
 
   @override
@@ -32,7 +40,8 @@ class _InputBarState extends State<InputBar> {
               width: mq.width * 0.6,
               color: Color(0xffEFF3F6),
               child: TextFormField(
-                controller: _textController..text = '',
+                controller: _textController
+                  ..text = widget.isEditing ? widget.editingText : '',
                 onSaved: (String value) => text = value,
                 style: TextStyle(
                   color: Colors.black,
@@ -69,13 +78,19 @@ class _InputBarState extends State<InputBar> {
                   if (_formKey.currentState.validate()) {
                     _formKey.currentState.save();
                     _textController.clear();
-                    widget.setData(text);
+
+                    if (widget.isEditing) {
+                      widget.setEditing('end', widget.editingID, text);
+                      return;
+                    }
+
+                    return widget.setData(text);
                   }
                 },
                 child: Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(
-                    'Submit',
+                    widget.isEditing ? 'Edit' : 'Submit',
                     style: TextStyle(
                       color: Colors.black,
                       fontSize: 18,
