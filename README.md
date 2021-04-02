@@ -75,6 +75,9 @@ Below are the information about these packages.
 | [uuid](https://pub.dev/packages/uuid)                                     | Generate Unique IDs |
 | [dio](https://pub.dev/packages/dio)                                       | Network Calls       |
 | [flutter_launcher_icons](https://pub.dev/packages/flutter_launcher_icons) | App Icon Generator  |
+| [tinycolor](https://pub.dev/packages/tinycolor)| Tint color and Color manupalation |
+| [clipboard](https://pub.dev/packages/clipboard) | Libary to copy data to clipboard | 
+| [another_flushbar](https://pub.dev/packages/another_flushbar)| Show beautiful notifcations |
 
 ## :clap: Done
 
