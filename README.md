@@ -18,6 +18,12 @@ Apps :
 3. Review_Info
 <img src="3.Review_Info/dev_assets/output.gif" width="250" height="550"/>
 
+4. Accordion
+<img src="4.Accordion/dev_assets/output.gif" width="250" height="550"/>
+
+5. Menu
+<img src="5.Menu/dev_assets/output.gif" width="250" height="550"/>
+
 ## :bulb: Key Features
 
 - [x] Show Netowrk Image.
