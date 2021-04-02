@@ -21,6 +21,9 @@ Apps :
 4. Accordion
 <img src="4.Accordion/dev_assets/output.gif" width="250" height="550"/>
 
+5. Menu
+<img src="5.Menu/dev_assets/output.gif" width="250" height="550"/>
+
 6. Tabs
 <img src="6.Tabs/dev_assets/output.gif" width="250" height="550"/>
 
