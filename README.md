@@ -21,8 +21,18 @@ Apps :
 4. Accordion
 <img src="4.Accordion/dev_assets/output.gif" width="250" height="550"/>
 
-5. Menu
-<img src="5.Menu/dev_assets/output.gif" width="250" height="550"/>
+6. Tabs
+<img src="6.Tabs/dev_assets/output.gif" width="250" height="550"/>
+
+7. Lorem_Ipsum
+<img src="7.Lorem_Ipsum/dev_assets/output.gif" width="250" height="550"/>
+
+8. Color_Generator
+<img src="8.Color_Generator/dev_assets/output.gif" width="250" height="550"/>
+
+9. Grocery_Bud
+<img src="9.Grocery_Bud/dev_assets/output.gif" width="250" height="550"/>
+
 
 ## :bulb: Key Features
 
